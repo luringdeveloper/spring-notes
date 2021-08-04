@@ -1,0 +1,26 @@
+ClassPathResource classPathResource=new ClassPathResource("spring_config.xml");
+BeanFactory beanFactory=new XmlBeanFactory(classPathResource);
+//lazy loading
+	
+ApplicationContext applicationContext	=new ClassPathXmlApplicationContext("spring_config.xml");
+//eager loading 
+
+Object object= applicationContext.getBean("student");
+Student student=(Student)object;
+student.setName("ajay pal");
+System.out.println(student.getName());
+
+1) What is Inversion of Control(IOC) Container?
+It is responsible to manage your bean life cycle.
+
+The IoC container is responsible to instantiate, configure and assemble the objects. The IoC container gets informations from the XML file and works accordingly. The main tasks performed by IoC container are:
+
+to instantiate the application class
+to configure the object
+to assemble the dependencies between the objects
+
+There are two types of IoC containers. They are:
+BeanFactory
+ApplicationContext
+
+Spring by default has singleton scope if we want multiple instance so we change to prototype
