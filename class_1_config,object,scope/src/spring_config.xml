@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+<!-- 	<bean id="student" class="com.model.Student"></bean> -->
+
+<!-- 	<bean id="student1" class="com.model.Student" > -->
+	<bean id="student1" class="com.model.Student" scope="prototype" parent="coll">
+<!-- 		<property name="name" value="Sonu pal"></property> -->
+		<constructor-arg value="Pal Ajay"></constructor-arg>
+		
+		<property name="address" ref="address"></property>
+	</bean>
+	
+	<bean id="address" class="com.model.Address" scope="prototype">
+	<property name="address" value="GZB."></property>
+	</bean>
+	
+	<bean id="coll" class="com.model.College" abstract="true">
+	<property name="college_name" value="its"></property>
+	</bean>
+	
+</beans>
