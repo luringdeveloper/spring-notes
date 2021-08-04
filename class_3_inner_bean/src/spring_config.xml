@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 3.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-3.0.dtd">
+
+<beans>
+	<bean id="student" class="com.model.Student"
+		destroy-method="destroy">
+		<property name="address">
+			<bean class="com.model.Address">
+				<property name="state" value="U.P"></property>
+			</bean>
+		</property>
+
+		<property name="name" value="Ajay Pal"></property>
+
+		<!-- for list -->
+		<property name="certificates">
+			<list>
+				<ref bean="c1" />
+				<ref bean="c2" />
+				<ref bean="c3" />
+			</list>
+		</property>
+		<!-- for set -->
+		<property name="game_collections">
+			<set>
+				<value>gta vice city</value>
+				<value>gta san andreas</value>
+				<value>gta 5</value>
+			</set>
+		</property>
+		<!-- for map -->
+		<property name="map">
+			<map>
+				<entry key="1" value="Deep"></entry>
+				<entry key="2" value="Deep singh"></entry>
+			</map>
+		</property>
+
+	
+
+	</bean>
+
+	<bean id="c1" class="com.model.Certificate">
+		<property name="certificate_name" value="c++"></property>
+	</bean>
+
+	<bean id="c2" class="com.model.Certificate">
+		<property name="certificate_name" value="c++"></property>
+	</bean>
+
+	<bean id="c3" class="com.model.Certificate">
+		<property name="certificate_name" value="c++"></property>
+	</bean>
+
+</beans> 
