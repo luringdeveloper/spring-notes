@@ -30,7 +30,7 @@ public class QuotesServices {
 	private String insert_quotes = "http://localhost:8287/class_8.1_spring_web_services/insertquotes";
 	private String delete_quotes = "http://localhost:8287/class_8.1_spring_web_services/deletequotes/";
 	private String update_quotes = "http://localhost:8287/class_8.1_spring_web_services/updatequotes";
-	private String get_quotes_by_id = "http://localhost:8287/class_8.1_spring_web_services/fetchquotesbyid/";
+	private String get_quotes_by_id = "http://localhost:8287/class_8.1_spring_web_services/fetchquotesbyid/{id}";
 	private String get_quotes_all = "http://localhost:8287/class_8.1_spring_web_services/fetchquotesall";
 
 	public ModelAndView getAllQuotes() {
@@ -69,17 +69,17 @@ public class QuotesServices {
 	}
 	public Quotes getquotesbyid(int id) {
 		
-//		headers.setContentType(MediaType.APPLICATION_JSON);
-//		HttpEntity<String> entity = new HttpEntity<String>(new Gson().toJson(id), headers);
-//		System.out.println("url is :"+get_quotes_by_id+entity);
-//		//restTemplate.getForObject(get_quotes_by_id, entity,Quotes.class);
-//		return restTemplate.exchange(get_quotes_by_id,HttpMethod.GET,entity,Quotes.class).getBody();
-//	
-		
-		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		HttpEntity<String> entity = new HttpEntity<String>(headers);
-		return restTemplate.exchange(get_quotes_by_id+"/"+id, HttpMethod.GET,entity, Quotes.class).getBody();
+		System.out.println("url is :"+get_quotes_by_id+entity);
+		//restTemplate.getForObject(get_quotes_by_id, entity,Quotes.class);
+		return restTemplate.exchange(get_quotes_by_id,HttpMethod.GET,entity,Quotes.class,id).getBody();
+	
+		
+//		HttpHeaders headers = new HttpHeaders();
+//		headers.setContentType(MediaType.APPLICATION_JSON);
+//		HttpEntity<String> entity = new HttpEntity<String>(headers);
+//		return restTemplate.exchange(get_quotes_by_id+"/"+id, HttpMethod.GET,entity, Quotes.class).getBody();
 
 	}
 	public String deletequotes(int id) {
